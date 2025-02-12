@@ -10,6 +10,7 @@ import cors from "cors"
 import path from "path"
 
 const app = express()
+const PORT = process.env.PORT || 3000
 app.use(cors())
 app.use(express.json())
 
@@ -21,8 +22,8 @@ app.use("/api", authRoutes)
 // 確保 `dist/` 的靜態檔案可以正確提供
 app.use(express.static(path.join(__dirname, "dist")))
 
-app.listen(3000, () => {
-	console.log("🚀 Express API 運行於 http://localhost:3000")
+app.listen(PORT, () => {
+	console.log(`Server is running on port ${PORT}`)
 })
 
 // import { db } from "./firebase"
