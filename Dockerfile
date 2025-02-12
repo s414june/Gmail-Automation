@@ -19,9 +19,6 @@ FROM base AS build
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
 
-# 複製 package.json 和 package-lock.json
-COPY package.json package-lock.json ./
-
 # 複製專案所有檔案
 COPY . .
 
