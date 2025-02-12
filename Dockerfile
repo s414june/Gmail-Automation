@@ -41,7 +41,8 @@ FROM base
 WORKDIR /app
 
 # 複製 `build` 階段的 `api/` 目錄到 `app/`
-COPY --from=build /app/api /app/api
+COPY --from=build /api /api
+COPY --from=build package.json .
 
 # 暴露 3000 端口
 EXPOSE 3000
