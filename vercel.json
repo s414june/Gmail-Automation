@@ -3,10 +3,7 @@
 	"installCommand": "npm install",
 	"buildCommand": "npm run build",
 	"outputDirectory": "./dist",
-	"rewrites": [
-		{
-			"source": "/api/(.*)",
-			"destination": "./server.js"
-		}
-	]
+	"engines": {
+		"node": "18.x"
+	}
 }
