@@ -3,6 +3,11 @@
 	"installCommand": "npm install",
 	"buildCommand": "npm run build",
 	"outputDirectory": "./dist",
+	"functions": {
+		"server.js": {
+			"runtime": "@vercel/bash"
+		}
+	},
 	"rewrites": [
 		{
 			"source": "/api/(.*)",
