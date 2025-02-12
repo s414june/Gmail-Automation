@@ -1,17 +1,5 @@
 {
 	"version": 2,
 	"installCommand": "npm install",
-	"buildCommand": "npm run build",
-	"outputDirectory": "./dist",
-	"functions": {
-		"server.js": {
-			"runtime": "@vercel/bash"
-		}
-	},
-	"rewrites": [
-		{
-			"source": "/api/(.*)",
-			"destination": "/dist/server.js"
-		}
-	]
+	"buildCommand": "npm run build && npm run start"
 }
