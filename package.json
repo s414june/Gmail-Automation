@@ -26,5 +26,8 @@
 		"@types/express": "^5.0.0",
 		"@types/node": "^22.13.1",
 		"ts-node": "^10.9.2"
+	},
+	"engines": {
+		"node": "18.x"
 	}
 }
