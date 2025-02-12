@@ -4,21 +4,14 @@
 		{
 			"src": "server.ts",
 			"use": "@vercel/node"
-		},
-		{
-			"src": "dist/**/*",
-			"use": "@vercel/static"
 		}
 	],
 	"routes": [
 		{
 			"src": "/api/(.*)",
-			"dest": "dist/server.js"
-		},
-		{
-			"src": "/(.*)",
-			"dest": "/dist/$1"
+			"dest": "server.js"
 		}
 	],
-	"buildCommand": "npm install && npm run build"
+	"buildCommand": "npm install && npm run build",
+	"startCommand": "npm start"
 }
