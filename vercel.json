@@ -2,11 +2,11 @@
 	"version": 2,
 	"installCommand": "npm install",
 	"buildCommand": "npm run build",
-	"outputDirectory": ".",
+	"outputDirectory": "./api",
 	"rewrites": [
 		{
 			"source": "/api/(.*)",
-			"destination": "/api/server"
+			"destination": "server.js"
 		}
 	]
 }
