@@ -25,14 +25,9 @@ app.use(express.static(path.join(__dirname, "api")))
 console.log(`Server staring...`)
 
 // Vercel Serverless Function 需要 `module.exports`
-if (process.env.VERCEL) {
-	console.log(`✅ Server is running on Vercel`)
-	module.exports = app
-} else {
-	app.listen(PORT, () => {
-		console.log(`✅ Server is running on port ${PORT}`)
-	})
-}
+app.listen(PORT, () => {
+	console.log(`✅ Server is running on port ${PORT}`)
+})
 
 // import { db } from "./firebase"
 
