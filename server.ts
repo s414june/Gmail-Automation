@@ -19,8 +19,8 @@ import authRoutes from "./routes/auth"
 // 註冊 OAuth API 路由
 app.use("/api", authRoutes)
 
-// 確保 `dist/` 的靜態檔案可以正確提供
-app.use(express.static(path.join(__dirname, "dist")))
+// 確保 `api/` 的靜態檔案可以正確提供
+app.use(express.static(path.join(__dirname, "api")))
 
 console.log(`Server staring...`)
 

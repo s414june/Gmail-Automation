@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"outDir": "dist",
+		"outDir": "api",
 		"module": "NodeNext",
 		"moduleResolution": "NodeNext",
 		"target": "esnext",
