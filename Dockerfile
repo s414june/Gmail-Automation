@@ -1,45 +1,50 @@
 # syntax = docker/dockerfile:1
 
-# Adjust NODE_VERSION as desired
+# 設定 Node.js 版本
 ARG NODE_VERSION=20.18.0
 FROM node:${NODE_VERSION}-slim AS base
 
 LABEL fly_launch_runtime="Node.js"
 
-# Node.js app lives here
-WORKDIR /api
+# 設定工作目錄
+WORKDIR /app
 
-# Set production environment
+# 設定環境變數
 ENV NODE_ENV="production"
 
-
-# Throw-away build stage to reduce size of final image
+# Build stage
 FROM base AS build
 
-# Install packages needed to build node modules
+# 安裝必要的系統工具
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
 
-# Install node modules
-COPY package-lock.json package.json ./
+# 複製 package.json 和 package-lock.json
+COPY package.json package-lock.json ./
+
+# 安裝所有依賴（包含開發環境）
 RUN npm ci --include=dev
 
-# Copy application code
+# 複製專案所有檔案
 COPY . .
 
-# Build application
+# 執行 `npm run build`
 RUN npm run build
 
-# Remove development dependencies
+# 刪除開發依賴，減少 Docker 體積
 RUN npm prune --omit=dev
 
-
-# Final stage for app image
+# Final stage
 FROM base
 
-# Copy built application
-COPY --from=build /api /api
+# 設定最終的工作目錄
+WORKDIR /app
 
-# Start the server by default, this can be overwritten at runtime
+# 複製 `build` 階段的 `api/` 目錄到 `app/`
+COPY --from=build /app/api /app/api
+
+# 暴露 3000 端口
 EXPOSE 3000
-CMD [ "npm", "run", "start" ]
+
+# 執行 `npm run start`
+CMD ["npm", "run", "start"]
