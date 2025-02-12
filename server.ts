@@ -22,6 +22,8 @@ app.use("/api", authRoutes)
 // 確保 `dist/` 的靜態檔案可以正確提供
 app.use(express.static(path.join(__dirname, "dist")))
 
+console.log(`Server staring...`)
+
 // Vercel Serverless Function 需要 `module.exports`
 if (process.env.VERCEL) {
 	console.log(`✅ Server is running on Vercel`)
