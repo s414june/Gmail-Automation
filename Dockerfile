@@ -22,11 +22,11 @@ RUN apt-get update -qq && \
 # 複製 package.json 和 package-lock.json
 COPY package.json package-lock.json ./
 
-# 安裝所有依賴（包含開發環境）
-RUN npm ci --include=dev
-
 # 複製專案所有檔案
 COPY . .
+
+# 安裝所有依賴（包含開發環境）
+RUN npm ci --include=dev
 
 # 執行 `npm run build`
 RUN npm run build
@@ -40,9 +40,7 @@ FROM base
 # 設定最終的工作目錄
 WORKDIR /app
 
-# 複製 `build` 階段的 `api/` 目錄到 `app/`
-COPY --from=build /api /api
-COPY --from=build package.json .
+COPY --from=build /app /app
 
 # 暴露 3000 端口
 EXPOSE 3000
