@@ -7,10 +7,5 @@
 			"source": "/api/(.*)",
 			"destination": "/api"
 		}
-	],
-	"functions": {
-		"api/index.js": {
-			"runtime": "nodejs18.18.0"
-		}
-	}
+	]
 }
