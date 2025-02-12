@@ -1,0 +1,11 @@
+{
+	"version": 2,
+	"routes": [
+		{
+			"src": "/api/(.*)",
+			"dest": "dist/server.js"
+		}
+	],
+	"buildCommand": "npm install && npm run build",
+	"outputDirectory": "dist"
+}
