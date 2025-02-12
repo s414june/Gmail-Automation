@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, "dist")))
 
 // Vercel Serverless Function 需要 `module.exports`
 if (process.env.VERCEL) {
+	console.log(`✅ Server is running on Vercel`)
 	module.exports = app
 } else {
 	app.listen(PORT, () => {
