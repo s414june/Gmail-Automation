@@ -7,6 +7,7 @@ dotenv.config({ path: envFile })
 
 import express from "express"
 import cors from "cors"
+import path from "path"
 
 const app = express()
 app.use(cors())
@@ -16,6 +17,9 @@ import authRoutes from "./routes/auth"
 
 // 註冊 OAuth API 路由
 app.use("/api", authRoutes)
+
+// 確保 `dist/` 的靜態檔案可以正確提供
+app.use(express.static(path.join(__dirname, "dist")))
 
 app.listen(3000, () => {
 	console.log("🚀 Express API 運行於 http://localhost:3000")
