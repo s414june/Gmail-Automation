@@ -20,3 +20,20 @@ app.use("/api", authRoutes)
 app.listen(3000, () => {
 	console.log("🚀 Express API 運行於 http://localhost:3000")
 })
+
+// import { db } from "./firebase"
+
+// async function testFirestoreWrite() {
+// 	try {
+// 		await db.collection("users").doc("test-user").set({
+// 			name: "Test User",
+// 			email: "test@example.com",
+// 			createdAt: new Date(),
+// 		})
+// 		console.log("✅ Firestore 寫入成功！")
+// 	} catch (error) {
+// 		console.error("❌ Firestore 寫入失敗：", error)
+// 	}
+// }
+
+// testFirestoreWrite()

@@ -5,8 +5,8 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "ts-node server.ts",
-		"build": "tsc",
-		"start": "node server.js"
+		"build": "tsc --outDir dist",
+		"start": "node dist/server.js"
 	},
 	"keywords": [],
 	"author": "",
@@ -14,8 +14,11 @@
 	"description": "",
 	"dependencies": {
 		"cors": "^2.8.5",
+		"crypto": "^1.0.1",
 		"dotenv": "^16.4.7",
 		"express": "^4.21.2",
+		"express-session": "^1.18.1",
+		"firebase-admin": "^13.1.0",
 		"googleapis": "^144.0.0"
 	},
 	"devDependencies": {
