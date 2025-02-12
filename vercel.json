@@ -6,6 +6,7 @@
 			"dest": "dist/server.js"
 		}
 	],
-	"buildCommand": "npm install && npm run build",
-	"outputDirectory": "dist"
+	"installCommand": "npm install",
+	"buildCommand": "npm run build",
+	"outputDirectory": "./dist"
 }
