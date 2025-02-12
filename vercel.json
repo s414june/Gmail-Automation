@@ -10,7 +10,7 @@
 	],
 	"functions": {
 		"api/index.js": {
-			"runtime": "nodejs18.x"
+			"runtime": "nodejs18.18.0"
 		}
 	}
 }
