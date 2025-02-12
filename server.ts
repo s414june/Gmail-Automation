@@ -22,9 +22,14 @@ app.use("/api", authRoutes)
 // 確保 `dist/` 的靜態檔案可以正確提供
 app.use(express.static(path.join(__dirname, "dist")))
 
-app.listen(PORT, () => {
-	console.log(`Server is running on port ${PORT}`)
-})
+// Vercel Serverless Function 需要 `module.exports`
+if (process.env.VERCEL) {
+	module.exports = app
+} else {
+	app.listen(PORT, () => {
+		console.log(`✅ Server is running on port ${PORT}`)
+	})
+}
 
 // import { db } from "./firebase"
 
